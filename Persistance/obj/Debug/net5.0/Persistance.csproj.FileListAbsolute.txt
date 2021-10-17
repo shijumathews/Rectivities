@@ -1,0 +1,15 @@
+C:\Data\Study\Udemy\Rectivities\Persistance\bin\Debug\net5.0\Persistance.deps.json
+C:\Data\Study\Udemy\Rectivities\Persistance\bin\Debug\net5.0\Persistance.dll
+C:\Data\Study\Udemy\Rectivities\Persistance\bin\Debug\net5.0\ref\Persistance.dll
+C:\Data\Study\Udemy\Rectivities\Persistance\bin\Debug\net5.0\Persistance.pdb
+C:\Data\Study\Udemy\Rectivities\Persistance\bin\Debug\net5.0\Domain.dll
+C:\Data\Study\Udemy\Rectivities\Persistance\bin\Debug\net5.0\Domain.pdb
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.csproj.AssemblyReference.cache
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.AssemblyInfoInputs.cache
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.AssemblyInfo.cs
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.csproj.CoreCompileInputs.cache
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.csproj.CopyComplete
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.dll
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\ref\Persistance.dll
+C:\Data\Study\Udemy\Rectivities\Persistance\obj\Debug\net5.0\Persistance.pdb
