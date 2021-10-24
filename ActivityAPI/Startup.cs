@@ -30,7 +30,7 @@ namespace ActivityAPI
         {
 
 
-            services.AddDbContext<RectivitiesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));           
+            services.AddDbContext<RectivitiesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
             services.AddControllers();
@@ -38,6 +38,18 @@ namespace ActivityAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ActivityAPI", Version = "v1" });
             });
+
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPloicy", policy =>
+                {
+                    policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+                });
+            }
+
+            );
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,9 +62,11 @@ namespace ActivityAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ActivityAPI v1"));
             }
 
-           // app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPloicy");
 
             app.UseAuthorization();
 
