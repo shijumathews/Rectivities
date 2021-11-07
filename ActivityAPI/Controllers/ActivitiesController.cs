@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Activities;
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistance;
+ 
 
 namespace ActivityAPI.Controllers
 {
@@ -13,19 +16,14 @@ namespace ActivityAPI.Controllers
     [Route("api/[controller]")]
     public class ActivitiesController : BaseApiController
     {
-        private readonly RectivitiesContext _context;
-        public ActivitiesController(RectivitiesContext context)
-        {
-            _context = context;
-        }
-
+       
 
         [HttpGet]
         [ActionName("Activities")]
 
         public async Task<ActionResult<List<Activity>>> GetActivities()
         { 
-            return await _context.Activities.ToListAsync();
+            return await Mediator.Send(new ActivityList.Query());
         }
 
 
@@ -33,7 +31,7 @@ namespace ActivityAPI.Controllers
         [ActionName("Activities")]
         public async Task<ActionResult<Activity>> GetActivity(Guid id)
         {
-            return await _context.Activities.FindAsync(id);
+            return Ok();
         }
     }
 }

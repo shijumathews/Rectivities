@@ -1,3 +1,8 @@
+C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.csproj.AssemblyReference.cache
+C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.AssemblyInfoInputs.cache
+C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.AssemblyInfo.cs
+C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.csproj.CoreCompileInputs.cache
 C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\Application.deps.json
 C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\Application.dll
 C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\ref\Application.dll
@@ -6,11 +11,6 @@ C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\Domain.dll
 C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\Persistance.dll
 C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\Domain.pdb
 C:\Data\Study\Udemy\Rectivities\application\bin\Debug\net5.0\Persistance.pdb
-C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.csproj.AssemblyReference.cache
-C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.AssemblyInfoInputs.cache
-C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.AssemblyInfo.cs
-C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.csproj.CoreCompileInputs.cache
 C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.csproj.CopyComplete
 C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\Application.dll
 C:\Data\Study\Udemy\Rectivities\application\obj\Debug\net5.0\ref\Application.dll

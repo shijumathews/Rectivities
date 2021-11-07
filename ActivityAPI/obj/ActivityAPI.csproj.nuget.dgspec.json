@@ -1,17 +1,105 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Data\\Study\\Udemy\\Rectivities\\ActivityAPI\\ActivityAPI.csproj": {}
+    "C:\\Data\\Study\\Udemy\\Rectivities\\activityapi\\ActivityAPI.csproj": {}
   },
   "projects": {
-    "C:\\Data\\Study\\Udemy\\Rectivities\\ActivityAPI\\ActivityAPI.csproj": {
+    "C:\\Data\\Study\\Udemy\\Rectivities\\activityapi\\ActivityAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\ActivityAPI\\ActivityAPI.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\activityapi\\ActivityAPI.csproj",
         "projectName": "ActivityAPI",
-        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\ActivityAPI\\ActivityAPI.csproj",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\activityapi\\ActivityAPI.csproj",
         "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\ActivityAPI\\obj\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\activityapi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\shiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj"
+              },
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj"
+              },
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj",
+        "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -50,17 +138,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[5.0.10, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.10, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
@@ -74,9 +154,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

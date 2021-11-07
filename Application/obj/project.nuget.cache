@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "x6m7wzK79dj2F8wBG15b5fWoC06qGH3z3R2oHqSntva2oN/iRja1QifP/N7GqSlq6GlkPqinpMGj5GU3naBofw==",
+  "dgSpecHash": "fZnicw0IZuwIjqoLgG47YvlqzHhwvpt6q6p5e+Kf/fX2zb/xGhvRaNRHaPpnnWqtFcQ7YfVM7udaLRs0/q1Xew==",
   "success": true,
   "projectFilePath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\shiju\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\shiju\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\shiju\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\shiju\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
