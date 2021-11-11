@@ -65,3 +65,5 @@ C:\Data\Study\Udemy\Rectivities\ActivityAPI\obj\Debug\net5.0\ActivityAPI.dll
 C:\Data\Study\Udemy\Rectivities\ActivityAPI\obj\Debug\net5.0\ref\ActivityAPI.dll
 C:\Data\Study\Udemy\Rectivities\ActivityAPI\obj\Debug\net5.0\ActivityAPI.pdb
 C:\Data\Study\Udemy\Rectivities\ActivityAPI\obj\Debug\net5.0\ActivityAPI.genruntimeconfig.cache
+C:\Data\Study\Udemy\Rectivities\activityapi\bin\Debug\net5.0\AutoMapper.dll
+C:\Data\Study\Udemy\Rectivities\activityapi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

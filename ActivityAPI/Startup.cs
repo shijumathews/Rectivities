@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application;
 using Application.Activities;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -48,6 +49,7 @@ namespace ActivityAPI
 
             );
         services.AddMediatR(typeof (ActivityList).Assembly);
+        services.AddAutoMapper(typeof (MappingProfile).Assembly);
 
         }
 
