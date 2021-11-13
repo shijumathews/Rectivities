@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface Activityxx {
+export interface Activity {
   Id: string;
   Title: string;
   Date: string;
@@ -9,4 +9,4 @@ export interface Activityxx {
   City: string;
   Venue: string;
 }
-export default Activityxx;
+export default Activity;
