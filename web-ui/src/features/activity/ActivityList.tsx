@@ -1,38 +1,49 @@
 import React from "react";
-import { Button, Grid, Item, Label, List, Segment } from "semantic-ui-react";
+import { Button, Card, Col, ListGroup, Row } from "react-bootstrap";
 import { isEmptyBindingElement } from "typescript";
 import { Activity } from "../../app/models/activity";
 
 interface Props {
   activities: Activity[];
+  selectActivity(id: string): void;
 }
 
-export default function ActiviDashBoard({ activities }: Props) {
+export default function ActiviDashBoard({ activities, selectActivity }: Props) {
   return (
-    <Segment>
-      <Item.Group Divided>
-        {activities.map((activity) => {
-          return (
-            <Item key={activity.id}>
-              <Item.Content>
-                <Item.Header as="a">{activity.title}</Item.Header>
-                <Item.Meta>{activity.date}</Item.Meta>
-                <Item.Description>
+    <ListGroup>
+      {activities.map((activity) => {
+        return (
+          <ListGroup.Item key={activity.id}>
+            <Card>
+              <Card.Body>
+                <Card.Title as="a">
+                  {activity.title} on {activity.date}
+                </Card.Title>
+                <Card.Text>
                   <div>{activity.description}</div>
                   <div>
                     {activity.city},{activity.venue}
                   </div>
-                </Item.Description>
-
-                <Item.Extra>
-                  <Button content="View" color="blue" floated="right"></Button>
-                  <Label basic content={activity.category}></Label>
-                </Item.Extra>
-              </Item.Content>
-            </Item>
-          );
-        })}
-      </Item.Group>
-    </Segment>
+                </Card.Text>
+                <Row>
+                  <Col className="float-begin">
+                    <Button variant="outline-dark">{activity.category}</Button>
+                  </Col>
+                  <Col>
+                    <Button
+                      variant="primary"
+                      className="float-end"
+                      onClick={() => selectActivity(activity.id)}
+                    >
+                      View
+                    </Button>
+                  </Col>
+                </Row>
+              </Card.Body>
+            </Card>
+          </ListGroup.Item>
+        );
+      })}
+    </ListGroup>
   );
 }

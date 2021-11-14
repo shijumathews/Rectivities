@@ -1,28 +1,25 @@
 import React from "react";
-import { Button, Container, Menu } from "semantic-ui-react";
-import "semantic-ui-css/semantic.min.css";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 export default function NavBar() {
   return (
-    <Menu inverted fixed="top">
+    <Navbar bg="dark" variant="dark" fixed="top">
       <Container>
-        <Menu.Item header>
+        <Navbar.Brand href="#home">
           <img
             src="/assets/logo.png"
-            alt="Logo"
+            height="28"
+            alt="Reactivities"
             style={{ marginRight: "10px" }}
           />
           Reactivities
-        </Menu.Item>
-        <Menu.Item name="Reactivities"></Menu.Item>
-        <Menu.Item>
-          <Button content="Create Activity" positive></Button>
-        </Menu.Item>
-        <Menu.Item name="Contact Us"></Menu.Item>
-        <Menu.Item name="About"></Menu.Item>
-        <Menu.Item name="Feed Back"></Menu.Item>
-        <Menu.Item name="News"></Menu.Item>
+        </Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Reactivities</Nav.Link>
+          <Nav.Link href="#pricing">Create Activity</Nav.Link>
+        </Nav>
       </Container>
-    </Menu>
+    </Navbar>
   );
 }
