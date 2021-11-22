@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
-export default function NavBar() {
+interface Props {
+  OpenEdit(id: string | undefined): void;
+}
+export default function NavBar({ OpenEdit }: Props) {
   return (
     <Navbar bg="dark" variant="dark" fixed="top">
       <Container>
@@ -17,7 +20,9 @@ export default function NavBar() {
         <Nav className="me-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#features">Reactivities</Nav.Link>
-          <Nav.Link href="#pricing">Create Activity</Nav.Link>
+          <Nav.Link href="#pricing" onClick={() => OpenEdit(undefined)}>
+            Create Activity
+          </Nav.Link>
         </Nav>
       </Container>
     </Navbar>

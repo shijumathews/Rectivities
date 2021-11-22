@@ -20,10 +20,8 @@ export default function ActiviDashBoard({ activities, selectActivity }: Props) {
                   {activity.title} on {activity.date}
                 </Card.Title>
                 <Card.Text>
-                  <div>{activity.description}</div>
-                  <div>
-                    {activity.city},{activity.venue}
-                  </div>
+                  {activity.description}
+                  {activity.city},{activity.venue}
                 </Card.Text>
                 <Row>
                   <Col className="float-begin">

@@ -11,6 +11,9 @@ interface Props {
   selectedActivity: Activity | undefined;
   selectActivity: (id: string) => void;
   cancelActivity: () => void;
+  OpenEdit: (id: string | undefined) => void;
+  CloseEdit: () => void;
+  EditMode: boolean;
 }
 
 export default function ActiviDashBoard({
@@ -18,6 +21,9 @@ export default function ActiviDashBoard({
   selectedActivity,
   selectActivity,
   cancelActivity,
+  EditMode,
+  OpenEdit,
+  CloseEdit,
 }: Props) {
   return (
     <Container>
@@ -29,14 +35,21 @@ export default function ActiviDashBoard({
           ></ActivityList>
         </Col>
         <Col md={4}>
-          {selectedActivity && (
+          {selectedActivity && !EditMode && (
             <ActivityDetais
               activity={selectedActivity}
               cancelActivity={cancelActivity}
+              OpenEdit={OpenEdit}
             ></ActivityDetais>
           )}
           <>
-            <ActivityForm></ActivityForm>
+            {EditMode && (
+              <ActivityForm
+                activity={selectedActivity}
+                CloseEdit={CloseEdit}
+              ></ActivityForm>
+            )}
+            ;
           </>
         </Col>
       </Row>

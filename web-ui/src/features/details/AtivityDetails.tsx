@@ -5,9 +5,15 @@ import { Activity } from "../../app/models/activity";
 interface Props {
   activity: Activity;
   cancelActivity(): void;
+
+  OpenEdit(id: string): void;
 }
 
-export default function ActivityDetais({ activity, cancelActivity }: Props) {
+export default function ActivityDetais({
+  activity,
+  cancelActivity,
+  OpenEdit,
+}: Props) {
   return (
     <Card>
       <Card.Header>
@@ -21,16 +27,19 @@ export default function ActivityDetais({ activity, cancelActivity }: Props) {
           {activity.title} on {activity.date}
         </Card.Title>
         <Card.Text>
-          <div>{activity.description}</div>
-          <div>
-            {activity.city},{activity.venue}
-          </div>
+          {activity.description}
+          {activity.city},{activity.venue}
         </Card.Text>
 
         <ButtonGroup aria-label="Basic example" className="float-end">
-          <Button variant="primary" color="blue">
+          <Button
+            variant="primary"
+            color="blue"
+            onClick={() => OpenEdit(activity.id)}
+          >
             Edit
-          </Button>
+          </Button>{" "}
+          &nbsp;
           <Button variant="secondary" onClick={() => cancelActivity()}>
             Cancel
           </Button>
