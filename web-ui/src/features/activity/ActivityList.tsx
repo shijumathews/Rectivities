@@ -6,9 +6,14 @@ import { Activity } from "../../app/models/activity";
 interface Props {
   activities: Activity[];
   selectActivity(id: string): void;
+  DeleteActivity: (activity: Activity) => void;
 }
 
-export default function ActiviDashBoard({ activities, selectActivity }: Props) {
+export default function ActiviDashBoard({
+  activities,
+  selectActivity,
+  DeleteActivity,
+}: Props) {
   return (
     <ListGroup>
       {activities.map((activity) => {
@@ -24,17 +29,25 @@ export default function ActiviDashBoard({ activities, selectActivity }: Props) {
                   {activity.city},{activity.venue}
                 </Card.Text>
                 <Row>
-                  <Col className="float-begin">
+                  <Col>
                     <Button variant="outline-dark">{activity.category}</Button>
                   </Col>
                   <Col>
-                    <Button
-                      variant="primary"
-                      className="float-end"
-                      onClick={() => selectActivity(activity.id)}
-                    >
-                      View
-                    </Button>
+                    <div className="float-end">
+                      <Button
+                        variant="danger"
+                        onClick={() => DeleteActivity(activity)}
+                      >
+                        Delete
+                      </Button>
+                      &nbsp;
+                      <Button
+                        variant="primary"
+                        onClick={() => selectActivity(activity.id)}
+                      >
+                        View
+                      </Button>
+                    </div>
                   </Col>
                 </Row>
               </Card.Body>

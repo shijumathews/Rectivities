@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, ButtonGroup, Card, Col, Row } from "react-bootstrap";
+import { Button, ButtonGroup, Card } from "react-bootstrap";
 import { Activity } from "../../app/models/activity";
+import { v4 as uuid } from "uuid";
 
 interface Props {
   activity: Activity;

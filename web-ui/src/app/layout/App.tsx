@@ -3,8 +3,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { Activity } from "../models/activity";
 import NavBar from "./NavBar";
-import { Container, List } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import ActiviDashBoard from "../../features/activity/ActivityDashBoard";
+import { v4 as uuid } from "uuid";
 
 function App() {
   const [activities, setactivities] = useState<Activity[]>([]);
@@ -42,6 +43,23 @@ function App() {
     SetEditMode(false);
   }
 
+  function handleCreateOrEditActivity(activity: Activity) {
+    activity.id
+      ? setactivities([
+          ...activities.filter((x) => x.id === activity.id),
+          activity,
+        ])
+      : setactivities([...activities, { ...activity, id: uuid() }]);
+    SetEditMode(false);
+    setSelectActivity(activity);
+  }
+
+  function handleDeleteActivity(activity: Activity) {
+    setactivities([...activities.filter((x) => x.id != activity.id)]);
+    SetEditMode(false);
+    setSelectActivity(undefined);
+  }
+
   return (
     <>
       <NavBar OpenEdit={handleOpenEdit} />
@@ -54,6 +72,8 @@ function App() {
           OpenEdit={handleOpenEdit}
           CloseEdit={handleCloseEdit}
           EditMode={EditMode}
+          SaveActivity={handleCreateOrEditActivity}
+          DeleteActivity = {handleDeleteActivity}
         ></ActiviDashBoard>
       </Container>
     </>

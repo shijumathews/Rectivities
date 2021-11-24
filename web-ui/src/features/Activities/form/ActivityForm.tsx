@@ -1,9 +1,4 @@
-import React, {
-  ChangeEvent,
-  FormEvent,
-  FormEventHandler,
-  useState,
-} from "react";
+import React, { ChangeEvent, useState } from "react";
 
 import { Button, Card, Form } from "react-bootstrap";
 import { Activity } from "../../../app/models/activity";
@@ -11,16 +6,18 @@ import { Activity } from "../../../app/models/activity";
 interface Props {
   activity: Activity | undefined;
   CloseEdit: () => void;
+  SaveActivity: (activity: Activity) => void;
 }
 
 export default function ActivityForm({
   activity: selectedActivity,
   CloseEdit,
+  SaveActivity,
 }: Props) {
   const initialState = selectedActivity ?? {
     id: "",
     title: "",
-    date: Date.now.toString(),
+    date: "",
     description: "",
     category: "",
     city: "",
@@ -35,7 +32,8 @@ export default function ActivityForm({
   }
 
   function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
-    console.log(activity);
+    //console.log(activity);
+    SaveActivity(activity);
     event.preventDefault();
   }
 
@@ -71,6 +69,20 @@ export default function ActivityForm({
             />
             <Form.Text className="text-muted">
               Detail Description expected.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="category">
+            <Form.Label>
+              <b>Category</b>
+            </Form.Label>
+            <Form.Control
+              type="text"
+              value={activity?.category}
+              name="category"
+              onChange={HandleChange}
+            />
+            <Form.Text className="text-muted">
+              Category Description expected.
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="date">

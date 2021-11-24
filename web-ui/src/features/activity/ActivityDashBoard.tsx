@@ -14,6 +14,8 @@ interface Props {
   OpenEdit: (id: string | undefined) => void;
   CloseEdit: () => void;
   EditMode: boolean;
+  SaveActivity: (activity: Activity) => void;
+  DeleteActivity: (activity: Activity) => void;
 }
 
 export default function ActiviDashBoard({
@@ -24,6 +26,8 @@ export default function ActiviDashBoard({
   EditMode,
   OpenEdit,
   CloseEdit,
+  SaveActivity,
+  DeleteActivity
 }: Props) {
   return (
     <Container>
@@ -32,6 +36,7 @@ export default function ActiviDashBoard({
           <ActivityList
             activities={activities}
             selectActivity={selectActivity}
+            DeleteActivity ={DeleteActivity}
           ></ActivityList>
         </Col>
         <Col md={4}>
@@ -47,9 +52,9 @@ export default function ActiviDashBoard({
               <ActivityForm
                 activity={selectedActivity}
                 CloseEdit={CloseEdit}
+                SaveActivity={SaveActivity}
               ></ActivityForm>
             )}
-            ;
           </>
         </Col>
       </Row>
