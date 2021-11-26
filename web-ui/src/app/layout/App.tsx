@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
-
-import axios from "axios";
 import { Activity } from "../models/activity";
 import NavBar from "./NavBar";
 import { Container } from "semantic-ui-react";
 import ActiviDashBoard from "../../features/activity/ActivityDashBoard";
 import { v4 as uuid } from "uuid";
+import agent from "../Agent/agent";
+import LoadingComponent from "./LoadingComponent";
 
 function App() {
   const [activities, setactivities] = useState<Activity[]>([]);
@@ -13,13 +13,18 @@ function App() {
     undefined
   );
   const [EditMode, SetEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get<Activity[]>("http://localhost:5000/api/Activities")
-      .then((response) => {
-        setactivities(response.data);
+    agent.Acivities.list().then((response) => {
+      let activities: Activity[] = [];
+      response.forEach((activity) => {
+        activity.date = activity.date.split("T")[0];
+        activities.push(activity);
       });
+      setactivities(activities);
+      setLoading(false);
+    });
   }, []);
 
   function handleSetSelectActivity(id: string) {
@@ -60,6 +65,9 @@ function App() {
     setSelectActivity(undefined);
   }
 
+  if (loading)
+    return <LoadingComponent content="Loading the app" inverted={false} />;
+
   return (
     <>
       <NavBar OpenEdit={handleOpenEdit} />
@@ -73,7 +81,7 @@ function App() {
           CloseEdit={handleCloseEdit}
           EditMode={EditMode}
           SaveActivity={handleCreateOrEditActivity}
-          DeleteActivity = {handleDeleteActivity}
+          DeleteActivity={handleDeleteActivity}
         ></ActiviDashBoard>
       </Container>
     </>

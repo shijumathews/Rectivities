@@ -90,7 +90,7 @@ export default function ActivityForm({
               <b>Date</b>
             </Form.Label>
             <Form.Control
-              type="text"
+              type="date"
               placeholder="Enter a Date"
               value={activity?.date}
               name="date"
