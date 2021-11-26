@@ -7,12 +7,14 @@ interface Props {
   activity: Activity | undefined;
   CloseEdit: () => void;
   SaveActivity: (activity: Activity) => void;
+  submitting: boolean;
 }
 
 export default function ActivityForm({
   activity: selectedActivity,
   CloseEdit,
   SaveActivity,
+  submitting,
 }: Props) {
   const initialState = selectedActivity ?? {
     id: "",

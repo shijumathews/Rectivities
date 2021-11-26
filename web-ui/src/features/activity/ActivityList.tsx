@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Card, Col, ListGroup, Row } from "react-bootstrap";
-import { isEmptyBindingElement } from "typescript";
 import { Activity } from "../../app/models/activity";
 
 interface Props {

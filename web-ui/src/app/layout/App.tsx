@@ -12,8 +12,9 @@ function App() {
   const [selectedActivity, setSelectActivity] = useState<Activity | undefined>(
     undefined
   );
-  const [EditMode, SetEditMode] = useState(false);
+  const [EditMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     agent.Acivities.list().then((response) => {
@@ -29,39 +30,51 @@ function App() {
 
   function handleSetSelectActivity(id: string) {
     setSelectActivity(activities.find((x) => x.id === id));
-    SetEditMode(false);
+    setEditMode(false);
   }
 
   function handleCancelededActivity() {
     setSelectActivity(undefined);
-    SetEditMode(false);
+    setEditMode(false);
 
     console.log(selectedActivity);
   }
 
   function handleOpenEdit(id: string | undefined) {
     id ? handleSetSelectActivity(id) : handleCancelededActivity();
-    SetEditMode(true);
+    setEditMode(true);
   }
 
   function handleCloseEdit() {
-    SetEditMode(false);
+    setEditMode(false);
   }
 
   function handleCreateOrEditActivity(activity: Activity) {
-    activity.id
-      ? setactivities([
-          ...activities.filter((x) => x.id === activity.id),
+    setSubmitting(true);
+    if (activity.id) {
+      agent.Acivities.update(activity).then(() => {
+        setactivities([
+          ...activities.filter((x) => x.id !== activity.id),
           activity,
-        ])
-      : setactivities([...activities, { ...activity, id: uuid() }]);
-    SetEditMode(false);
-    setSelectActivity(activity);
+        ]);
+      });
+      setSelectActivity(activity);
+      setSubmitting(false);
+      setEditMode(false);
+    } else {
+      activity.id = uuid();
+      agent.Acivities.create(activity).then(() => {
+        setactivities([...activities, activity]);
+      });
+      setSelectActivity(activity);
+      setSubmitting(false);
+      setEditMode(false);
+    }
   }
 
   function handleDeleteActivity(activity: Activity) {
-    setactivities([...activities.filter((x) => x.id != activity.id)]);
-    SetEditMode(false);
+    setactivities([...activities.filter((x) => x.id !== activity.id)]);
+    setEditMode(false);
     setSelectActivity(undefined);
   }
 
@@ -82,6 +95,7 @@ function App() {
           EditMode={EditMode}
           SaveActivity={handleCreateOrEditActivity}
           DeleteActivity={handleDeleteActivity}
+          submitting={submitting}
         ></ActiviDashBoard>
       </Container>
     </>

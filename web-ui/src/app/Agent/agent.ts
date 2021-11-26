@@ -11,7 +11,7 @@ const sleep = (delay: number) => {
 
 axios.interceptors.response.use(async (response) => {
   try {
-    await sleep(3000);
+    await sleep(1000);
     return response;
   } catch (error) {
     return await Promise.reject(error);
@@ -22,13 +22,18 @@ const responseBody = <T>(response: AxiosResponse<T>) => response.data;
 
 const requests = {
   get: <T>(url: string) => axios.get<T>(url).then(responseBody),
-  post: (url: string, body: {}) => axios.post(url, body).then(responseBody),
-  put: (url: string, body: {}) => axios.get(url, body).then(responseBody),
-  del: (url: string, body: {}) => axios.get(url).then(responseBody),
+  post: <T>(url: string, body: {}) =>
+    axios.post<T>(url, body).then(responseBody),
+  put: <T>(url: string, body: {}) => axios.put<T>(url, body).then(responseBody),
+  del: <T>(url: string) => axios.delete<T>(url).then(responseBody),
 };
 
 const Acivities = {
   list: () => requests.get<Activity[]>("/Activities"),
+  details: (id: string) => requests.get<Activity>(`/Activities/${id}`),
+  create: (activity: Activity) => axios.post(`/Activities/`, activity),
+  update: (activity: Activity) =>
+    axios.put(`/Activities/${activity.id}`, activity),
 };
 
 const agent = {

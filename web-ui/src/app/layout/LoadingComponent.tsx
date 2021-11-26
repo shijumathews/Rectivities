@@ -1,4 +1,3 @@
-import react from "react";
 import { Spinner } from "react-bootstrap";
 interface Props {
   inverted?: boolean;
