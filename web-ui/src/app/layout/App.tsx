@@ -11,7 +11,7 @@ function App() {
   const [activities, setactivities] = useState<Activity[]>([]);
   const [EditMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState(false);
   const [selectedActivity, setSelectActivity] = useState<Activity | undefined>(
     undefined
   );
@@ -31,13 +31,12 @@ function App() {
   function handleSetSelectActivity(id: string) {
     setSelectActivity(activities.find((x) => x.id === id));
     setEditMode(false);
+    console.log(submitting);
   }
 
   function handleCancelededActivity() {
     setSelectActivity(undefined);
     setEditMode(false);
-
-    console.log(selectedActivity);
   }
 
   function handleOpenEdit(id: string | undefined) {
@@ -50,29 +49,33 @@ function App() {
   }
 
   function handleCreateOrEditActivity(activity: Activity) {
-    console.log("begin...");
-    setSubmitting(true);
-    console.log(submitting);
     if (activity.id) {
-      agent.Acivities.update(activity).then(() => {
-        setactivities([
-          ...activities.filter((x) => x.id !== activity.id),
-          activity,
-        ]);
-      });
-      setSelectActivity(activity);
-      setSubmitting(false);
-      setEditMode(false);
+      setSubmitting(true);
+      agent.Acivities.update(activity)
+        .then(() => {
+          setactivities([
+            ...activities.filter((x) => x.id !== activity.id),
+            activity,
+          ]);
+        })
+        .then(() => {
+          setSelectActivity(activity);
+          setSubmitting(false);
+          setEditMode(false);
+        });
     } else {
+      setSubmitting(true);
       activity.id = uuid();
-      agent.Acivities.create(activity).then(() => {
-        setactivities([...activities, activity]);
-      });
-      setSelectActivity(activity);
-      setSubmitting(false);
-      //setEditMode(false);
+      agent.Acivities.create(activity)
+        .then(() => {
+          setactivities([...activities, activity]);
+        })
+        .then(() => {
+          setSelectActivity(activity);
+          setSubmitting(false);
+          setEditMode(false);
+        });
     }
-    console.log("end...");
   }
 
   function handleDeleteActivity(activity: Activity) {

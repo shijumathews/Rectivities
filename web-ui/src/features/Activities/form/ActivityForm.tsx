@@ -16,7 +16,6 @@ export default function ActivityForm({
   SaveActivity,
   submitting,
 }: Props) {
-  
   const initialState = selectedActivity ?? {
     id: "",
     title: "",
@@ -135,7 +134,7 @@ export default function ActivityForm({
             </Form.Text>
           </Form.Group>
           <Button variant="primary" type="submit" disabled={submitting}>
-            Submit&nbsp;
+            {submitting && "Saving"} {!submitting && "Submit"}&nbsp;
             {submitting && (
               <Spinner
                 as="span"
