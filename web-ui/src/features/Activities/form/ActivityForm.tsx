@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 
-import { Button, Card, Form } from "react-bootstrap";
+import { Button, Card, Form, Spinner } from "react-bootstrap";
 import { Activity } from "../../../app/models/activity";
 
 interface Props {
@@ -16,6 +16,7 @@ export default function ActivityForm({
   SaveActivity,
   submitting,
 }: Props) {
+  
   const initialState = selectedActivity ?? {
     id: "",
     title: "",
@@ -133,8 +134,17 @@ export default function ActivityForm({
               Fancy Title is not allowed.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
+          <Button variant="primary" type="submit" disabled={submitting}>
+            Submit&nbsp;
+            {submitting && (
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+            )}
           </Button>
           &nbsp;
           <Button variant="secondary" type="button" onClick={CloseEdit}>

@@ -9,12 +9,12 @@ import LoadingComponent from "./LoadingComponent";
 
 function App() {
   const [activities, setactivities] = useState<Activity[]>([]);
+  const [EditMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState<boolean>(false);
   const [selectedActivity, setSelectActivity] = useState<Activity | undefined>(
     undefined
   );
-  const [EditMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     agent.Acivities.list().then((response) => {
@@ -50,7 +50,9 @@ function App() {
   }
 
   function handleCreateOrEditActivity(activity: Activity) {
+    console.log("begin...");
     setSubmitting(true);
+    console.log(submitting);
     if (activity.id) {
       agent.Acivities.update(activity).then(() => {
         setactivities([
@@ -68,8 +70,9 @@ function App() {
       });
       setSelectActivity(activity);
       setSubmitting(false);
-      setEditMode(false);
+      //setEditMode(false);
     }
+    console.log("end...");
   }
 
   function handleDeleteActivity(activity: Activity) {
