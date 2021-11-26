@@ -39,7 +39,7 @@ function App() {
     setEditMode(false);
   }
 
-  function handleOpenEdit(id: string | undefined) {
+  function ahandleOpenEdit(id: string | undefined) {
     id ? handleSetSelectActivity(id) : handleCancelededActivity();
     setEditMode(true);
   }
