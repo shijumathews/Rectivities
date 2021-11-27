@@ -1,17 +1,21 @@
 import React from "react";
-import { Button, Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Button, Card, Col, ListGroup, Row, Spinner } from "react-bootstrap";
 import { Activity } from "../../app/models/activity";
 
 interface Props {
   activities: Activity[];
   selectActivity(id: string): void;
   DeleteActivity: (activity: Activity) => void;
+  deleting: boolean;
+  deletingId: string | undefined;
 }
 
 export default function ActiviDashBoard({
   activities,
   selectActivity,
   DeleteActivity,
+  deletingId,
+  deleting,
 }: Props) {
   return (
     <ListGroup>
@@ -37,7 +41,16 @@ export default function ActiviDashBoard({
                         variant="danger"
                         onClick={() => DeleteActivity(activity)}
                       >
-                        Delete
+                        {deleting && deletingId === activity.id && (
+                          <Spinner
+                            as="span"
+                            animation="border"
+                            size="sm"
+                            role="status"
+                            aria-hidden="true"
+                          />
+                        )}
+                        &nbsp; Delete
                       </Button>
                       &nbsp;
                       <Button

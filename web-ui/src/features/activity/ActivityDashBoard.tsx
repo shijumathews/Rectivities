@@ -16,7 +16,9 @@ interface Props {
   EditMode: boolean;
   SaveActivity: (activity: Activity) => void;
   DeleteActivity: (activity: Activity) => void;
-  submitting:boolean;
+  submitting: boolean;
+  deleting: boolean;
+  deletingId: string|undefined;
 }
 
 export default function ActiviDashBoard({
@@ -29,7 +31,9 @@ export default function ActiviDashBoard({
   CloseEdit,
   SaveActivity,
   DeleteActivity,
-  submitting
+  submitting,
+  deleting,
+  deletingId,
 }: Props) {
   return (
     <Container>
@@ -38,7 +42,9 @@ export default function ActiviDashBoard({
           <ActivityList
             activities={activities}
             selectActivity={selectActivity}
-            DeleteActivity ={DeleteActivity}
+            DeleteActivity={DeleteActivity}
+            deleting={deleting}
+            deletingId={deletingId}
           ></ActivityList>
         </Col>
         <Col md={4}>
@@ -55,7 +61,7 @@ export default function ActiviDashBoard({
                 activity={selectedActivity}
                 CloseEdit={CloseEdit}
                 SaveActivity={SaveActivity}
-                submitting ={submitting}
+                submitting={submitting}
               ></ActivityForm>
             )}
           </>

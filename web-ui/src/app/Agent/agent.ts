@@ -11,7 +11,8 @@ const sleep = (delay: number) => {
 
 axios.interceptors.response.use(async (response) => {
   try {
-    await sleep(3000);
+    await sleep(1000);
+
     return response;
   } catch (error) {
     return await Promise.reject(error);
@@ -34,6 +35,7 @@ const Acivities = {
   create: (activity: Activity) => axios.post(`/Activities/`, activity),
   update: (activity: Activity) =>
     axios.put(`/Activities/${activity.id}`, activity),
+  delete: (id: string) => axios.delete(`/Activities/${id}`),
 };
 
 const agent = {

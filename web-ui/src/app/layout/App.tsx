@@ -15,6 +15,8 @@ function App() {
   const [selectedActivity, setSelectActivity] = useState<Activity | undefined>(
     undefined
   );
+  const [deleting, setDeleting] = useState(false);
+  const [deletingId, setDeletingId] = useState<string|undefined>(undefined);
 
   useEffect(() => {
     agent.Acivities.list().then((response) => {
@@ -79,9 +81,17 @@ function App() {
   }
 
   function handleDeleteActivity(activity: Activity) {
-    setactivities([...activities.filter((x) => x.id !== activity.id)]);
-    setEditMode(false);
-    setSelectActivity(undefined);
+    setDeleting(true);
+    if (activity.id) {
+      setDeletingId(activity.id);
+      agent.Acivities.delete(activity.id).then(() => {
+        setactivities([...activities.filter((x) => x.id !== activity.id)]);
+        setEditMode(false);
+        setSelectActivity(undefined);
+        setDeleting(false);
+        setDeletingId(undefined);
+      });
+    }
   }
 
   if (loading)
@@ -102,6 +112,8 @@ function App() {
           SaveActivity={handleCreateOrEditActivity}
           DeleteActivity={handleDeleteActivity}
           submitting={submitting}
+          deleting={deleting}
+          deletingId ={deletingId}
         ></ActiviDashBoard>
       </Container>
     </>
