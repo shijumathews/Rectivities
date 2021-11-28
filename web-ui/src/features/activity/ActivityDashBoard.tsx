@@ -1,65 +1,50 @@
+import { observer } from "mobx-react-lite";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 import { Activity } from "../../app/models/activity";
+import { useStore } from "../../app/stores/store";
 import ActivityForm from "../Activities/form/ActivityForm";
 import ActivityDetais from "../details/AtivityDetails";
 import ActivityList from "./ActivityList";
 
 interface Props {
   activities: Activity[];
-  selectedActivity: Activity | undefined;
-  selectActivity: (id: string) => void;
-  cancelActivity: () => void;
-  OpenEdit: (id: string | undefined) => void;
-  CloseEdit: () => void;
-  EditMode: boolean;
+
   SaveActivity: (activity: Activity) => void;
   DeleteActivity: (activity: Activity) => void;
   submitting: boolean;
   deleting: boolean;
-  deletingId: string|undefined;
+  deletingId: string | undefined;
 }
 
-export default function ActiviDashBoard({
+export default observer(function ActiviDashBoard({
   activities,
-  selectedActivity,
-  selectActivity,
-  cancelActivity,
-  EditMode,
-  OpenEdit,
-  CloseEdit,
   SaveActivity,
   DeleteActivity,
   submitting,
   deleting,
   deletingId,
 }: Props) {
+  const { activityStore } = useStore();
+  const { selectActivity, editMode } = activityStore;
+
   return (
     <Container>
       <Row>
         <Col md={8}>
           <ActivityList
             activities={activities}
-            selectActivity={selectActivity}
             DeleteActivity={DeleteActivity}
             deleting={deleting}
             deletingId={deletingId}
           ></ActivityList>
         </Col>
         <Col md={4}>
-          {selectedActivity && !EditMode && (
-            <ActivityDetais
-              activity={selectedActivity}
-              cancelActivity={cancelActivity}
-              OpenEdit={OpenEdit}
-            ></ActivityDetais>
-          )}
+          {selectActivity && !editMode && <ActivityDetais></ActivityDetais>}
           <>
-            {EditMode && (
+            {editMode && (
               <ActivityForm
-                activity={selectedActivity}
-                CloseEdit={CloseEdit}
                 SaveActivity={SaveActivity}
                 submitting={submitting}
               ></ActivityForm>
@@ -69,4 +54,4 @@ export default function ActiviDashBoard({
       </Row>
     </Container>
   );
-}
+});

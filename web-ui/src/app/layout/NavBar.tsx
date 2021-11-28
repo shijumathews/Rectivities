@@ -1,10 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { useStore } from "../stores/store";
 
-interface Props {
-  OpenEdit(id: string | undefined): void;
-}
-export default function NavBar({ OpenEdit }: Props) {
+export default function NavBar() {
+  const { activityStore } = useStore();
   return (
     <Navbar bg="dark" variant="dark" fixed="top">
       <Container>
@@ -20,7 +19,7 @@ export default function NavBar({ OpenEdit }: Props) {
         <Nav className="me-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#features">Reactivities</Nav.Link>
-          <Nav.Link href="#pricing" onClick={() => OpenEdit(undefined)}>
+          <Nav.Link href="#pricing" onClick={() => activityStore.OpenEdit()}>
             Create Activity
           </Nav.Link>
         </Nav>

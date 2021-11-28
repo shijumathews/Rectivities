@@ -13,7 +13,6 @@ function App() {
   const { activityStore } = useStore();
 
   const [activities, setactivities] = useState<Activity[]>([]);
-  const [EditMode, setEditMode] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
   const [selectedActivity, setSelectActivity] = useState<Activity | undefined>(
@@ -25,26 +24,6 @@ function App() {
   useEffect(() => {
     activityStore.loadActivities();
   }, [activityStore]);
-
-  function handleSetSelectActivity(id: string) {
-    setSelectActivity(activities.find((x) => x.id === id));
-    setEditMode(false);
-    console.log(submitting);
-  }
-
-  function handleCancelededActivity() {
-    setSelectActivity(undefined);
-    setEditMode(false);
-  }
-
-  function handleOpenEdit(id: string | undefined) {
-    id ? handleSetSelectActivity(id) : handleCancelededActivity();
-    setEditMode(true);
-  }
-
-  function handleCloseEdit() {
-    setEditMode(false);
-  }
 
   function handleCreateOrEditActivity(activity: Activity) {
     if (activity.id) {
@@ -59,7 +38,7 @@ function App() {
         .then(() => {
           setSelectActivity(activity);
           setSubmitting(false);
-          setEditMode(false);
+          activityStore.editMode = false;
         });
     } else {
       setSubmitting(true);
@@ -71,7 +50,7 @@ function App() {
         .then(() => {
           setSelectActivity(activity);
           setSubmitting(false);
-          setEditMode(false);
+          activityStore.editMode = false;
         });
     }
   }
@@ -82,7 +61,7 @@ function App() {
       setDeletingId(activity.id);
       agent.Acivities.delete(activity.id).then(() => {
         setactivities([...activities.filter((x) => x.id !== activity.id)]);
-        setEditMode(false);
+        activityStore.editMode = false;
         setSelectActivity(undefined);
         setDeleting(false);
         setDeletingId(undefined);
@@ -95,17 +74,11 @@ function App() {
 
   return (
     <>
-      <NavBar OpenEdit={handleOpenEdit} />
+      <NavBar />
 
       <Container style={{ marginTop: "5em" }}>
         <ActiviDashBoard
           activities={activityStore.activities}
-          selectedActivity={selectedActivity}
-          selectActivity={handleSetSelectActivity}
-          cancelActivity={handleCancelededActivity}
-          OpenEdit={handleOpenEdit}
-          CloseEdit={handleCloseEdit}
-          EditMode={EditMode}
           SaveActivity={handleCreateOrEditActivity}
           DeleteActivity={handleDeleteActivity}
           submitting={submitting}

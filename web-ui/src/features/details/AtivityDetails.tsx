@@ -1,19 +1,20 @@
 import React from "react";
 import { Button, ButtonGroup, Card } from "react-bootstrap";
-import { Activity } from "../../app/models/activity";
+import LoadingComponent from "../../app/layout/LoadingComponent";
+import { useStore } from "../../app/stores/store";
 
-interface Props {
-  activity: Activity;
-  cancelActivity(): void;
+export default function ActivityDetais() {
+  const { activityStore } = useStore();
+  const {
+    OpenEdit,
+    CancelededActivity,
+    selectActivity: activity,
+  } = activityStore;
 
-  OpenEdit(id: string): void;
-}
+  if (!activity) {
+    return <LoadingComponent />;
+  }
 
-export default function ActivityDetais({
-  activity,
-  cancelActivity,
-  OpenEdit,
-}: Props) {
   return (
     <Card>
       <Card.Header>
@@ -40,7 +41,7 @@ export default function ActivityDetais({
             Edit
           </Button>{" "}
           &nbsp;
-          <Button variant="secondary" onClick={() => cancelActivity()}>
+          <Button variant="secondary" onClick={() => CancelededActivity()}>
             Cancel
           </Button>
         </ButtonGroup>

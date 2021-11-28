@@ -2,21 +2,18 @@ import React, { ChangeEvent, useState } from "react";
 
 import { Button, Card, Form, Spinner } from "react-bootstrap";
 import { Activity } from "../../../app/models/activity";
+import { useStore } from "../../../app/stores/store";
 
 interface Props {
-  activity: Activity | undefined;
-  CloseEdit: () => void;
   SaveActivity: (activity: Activity) => void;
   submitting: boolean;
 }
 
-export default function ActivityForm({
-  activity: selectedActivity,
-  CloseEdit,
-  SaveActivity,
-  submitting,
-}: Props) {
-  const initialState = selectedActivity ?? {
+export default function ActivityForm({ SaveActivity, submitting }: Props) {
+  const { activityStore } = useStore();
+  const { selectActivity, CloseEdit } = activityStore;
+
+  const initialState = selectActivity ?? {
     id: "",
     title: "",
     date: "",
@@ -146,7 +143,7 @@ export default function ActivityForm({
             )}
           </Button>
           &nbsp;
-          <Button variant="secondary" type="button" onClick={CloseEdit}>
+          <Button variant="secondary" type="button" onClick={() => CloseEdit()}>
             Cancel
           </Button>
         </Form>

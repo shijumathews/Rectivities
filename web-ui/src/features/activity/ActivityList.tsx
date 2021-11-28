@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Card, Col, ListGroup, Row, Spinner } from "react-bootstrap";
 import { Activity } from "../../app/models/activity";
+import { useStore } from "../../app/stores/store";
 
 interface Props {
   activities: Activity[];
-  selectActivity(id: string): void;
   DeleteActivity: (activity: Activity) => void;
   deleting: boolean;
   deletingId: string | undefined;
@@ -12,11 +12,13 @@ interface Props {
 
 export default function ActiviDashBoard({
   activities,
-  selectActivity,
   DeleteActivity,
   deletingId,
   deleting,
 }: Props) {
+  const { activityStore } = useStore();
+  const { SetSelectActivity } = activityStore;
+
   return (
     <ListGroup>
       {activities.map((activity) => {
@@ -55,7 +57,7 @@ export default function ActiviDashBoard({
                       &nbsp;
                       <Button
                         variant="primary"
-                        onClick={() => selectActivity(activity.id)}
+                        onClick={() => SetSelectActivity(activity.id)}
                       >
                         View
                       </Button>
