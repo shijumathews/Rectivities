@@ -6,29 +6,25 @@ import ActiviDashBoard from "../../features/activity/ActivityDashBoard";
 import { v4 as uuid } from "uuid";
 import agent from "../Agent/agent";
 import LoadingComponent from "./LoadingComponent";
+import { useStore } from "../stores/store";
+import { observer } from "mobx-react-lite";
 
 function App() {
+  const { activityStore } = useStore();
+
   const [activities, setactivities] = useState<Activity[]>([]);
   const [EditMode, setEditMode] = useState(false);
-  const [loading, setLoading] = useState(true);
+
   const [submitting, setSubmitting] = useState(false);
   const [selectedActivity, setSelectActivity] = useState<Activity | undefined>(
     undefined
   );
   const [deleting, setDeleting] = useState(false);
-  const [deletingId, setDeletingId] = useState<string|undefined>(undefined);
+  const [deletingId, setDeletingId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    agent.Acivities.list().then((response) => {
-      let activities: Activity[] = [];
-      response.forEach((activity) => {
-        activity.date = activity.date.split("T")[0];
-        activities.push(activity);
-      });
-      setactivities(activities);
-      setLoading(false);
-    });
-  }, []);
+    activityStore.loadActivities();
+  }, [activityStore]);
 
   function handleSetSelectActivity(id: string) {
     setSelectActivity(activities.find((x) => x.id === id));
@@ -94,15 +90,16 @@ function App() {
     }
   }
 
-  if (loading)
+  if (activityStore.initialLoading)
     return <LoadingComponent content="Loading the app" inverted={false} />;
 
   return (
     <>
       <NavBar OpenEdit={handleOpenEdit} />
+
       <Container style={{ marginTop: "5em" }}>
         <ActiviDashBoard
-          activities={activities}
+          activities={activityStore.activities}
           selectedActivity={selectedActivity}
           selectActivity={handleSetSelectActivity}
           cancelActivity={handleCancelededActivity}
@@ -113,11 +110,11 @@ function App() {
           DeleteActivity={handleDeleteActivity}
           submitting={submitting}
           deleting={deleting}
-          deletingId ={deletingId}
+          deletingId={deletingId}
         ></ActiviDashBoard>
       </Container>
     </>
   );
 }
 
-export default App;
+export default observer(App);
