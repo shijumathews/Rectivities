@@ -1,23 +1,20 @@
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
 import { Button, Card, Col, ListGroup, Row, Spinner } from "react-bootstrap";
-import { Activity } from "../../app/models/activity";
 import { useStore } from "../../app/stores/store";
 
-interface Props {
-  activities: Activity[];
-  DeleteActivity: (activity: Activity) => void;
-  deleting: boolean;
-  deletingId: string | undefined;
-}
-
-export default function ActiviDashBoard({
-  activities,
-  DeleteActivity,
-  deletingId,
-  deleting,
-}: Props) {
+export default function ActiviDashBoard() {
   const { activityStore } = useStore();
-  const { SetSelectActivity } = activityStore;
+  const { activities, SetSelectActivity, DeleteActivity, loading } =
+    activityStore;
+  const [target, setTarget] = useState("");
+
+  function handleActivityDelete(
+    e: SyntheticEvent<HTMLButtonElement>,
+    id: string
+  ) {
+    setTarget(e.currentTarget.name);
+    DeleteActivity(id);
+  }
 
   return (
     <ListGroup>
@@ -41,9 +38,10 @@ export default function ActiviDashBoard({
                     <div className="float-end">
                       <Button
                         variant="danger"
-                        onClick={() => DeleteActivity(activity)}
+                        onClick={(e) => handleActivityDelete(e, activity.id)}
+                        name={activity.id}
                       >
-                        {deleting && deletingId === activity.id && (
+                        {loading && target === activity.id && (
                           <Spinner
                             as="span"
                             animation="border"

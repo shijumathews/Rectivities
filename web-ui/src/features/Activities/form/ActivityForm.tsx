@@ -1,17 +1,13 @@
+import { observer } from "mobx-react-lite";
 import React, { ChangeEvent, useState } from "react";
 
 import { Button, Card, Form, Spinner } from "react-bootstrap";
-import { Activity } from "../../../app/models/activity";
 import { useStore } from "../../../app/stores/store";
 
-interface Props {
-  SaveActivity: (activity: Activity) => void;
-  submitting: boolean;
-}
-
-export default function ActivityForm({ SaveActivity, submitting }: Props) {
+export default observer(function ActivityForm() {
   const { activityStore } = useStore();
-  const { selectActivity, CloseEdit } = activityStore;
+  const { selectActivity, CloseEdit, CreateActivity, UpdateActivity, loading } =
+    activityStore;
 
   const initialState = selectActivity ?? {
     id: "",
@@ -32,7 +28,11 @@ export default function ActivityForm({ SaveActivity, submitting }: Props) {
 
   function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     //console.log(activity);
-    SaveActivity(activity);
+    if (activity.id) {
+      UpdateActivity(activity);
+    } else {
+      CreateActivity(activity);
+    }
     event.preventDefault();
   }
 
@@ -130,9 +130,9 @@ export default function ActivityForm({ SaveActivity, submitting }: Props) {
               Fancy Title is not allowed.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" type="submit" disabled={submitting}>
-            {submitting && "Saving"} {!submitting && "Submit"}&nbsp;
-            {submitting && (
+          <Button variant="primary" type="submit" disabled={loading}>
+            {loading && "Saving"} {!loading && "Submit"}&nbsp;
+            {loading && (
               <Spinner
                 as="span"
                 animation="border"
@@ -150,4 +150,4 @@ export default function ActivityForm({ SaveActivity, submitting }: Props) {
       </Card.Body>
     </Card>
   );
-}
+});
