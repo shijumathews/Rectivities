@@ -4,7 +4,7 @@ import { useStore } from "../../app/stores/store";
 
 export default function ActiviDashBoard() {
   const { activityStore } = useStore();
-  const { activities, SetSelectActivity, DeleteActivity, loading } =
+  const { GetActivityBydate, SetSelectActivity, DeleteActivity, loading } =
     activityStore;
   const [target, setTarget] = useState("");
 
@@ -18,7 +18,7 @@ export default function ActiviDashBoard() {
 
   return (
     <ListGroup>
-      {activities.map((activity) => {
+      {GetActivityBydate.map((activity) => {
         return (
           <ListGroup.Item key={activity.id}>
             <Card>
