@@ -9,7 +9,6 @@ export default class ActivityStore {
   editMode = false;
   loading = false;
   initialLoading = true;
-  
 
   constructor() {
     makeAutoObservable(this, {});
@@ -22,12 +21,10 @@ export default class ActivityStore {
   }
 
   loadActivities = async () => {
-    
     try {
       const activities = await agent.Acivities.list();
       activities.forEach((activity) => {
-        activity.date = activity.date.split("T")[0];
-        this.ActivityRegistry.set(activity.id, activity);
+        this.SetActivity(activity);
       });
       this.setInitialLoading(false);
     } catch (error) {
@@ -36,26 +33,37 @@ export default class ActivityStore {
     }
   };
 
+  LoadActivity = async (id: string) => {
+    this.setInitialLoading(false);
+    let activity = await this.GetActivity(id);
+
+    if (activity) {
+      try {
+        this.SetActivity(activity);
+        this.setInitialLoading(false);
+        this.selectActivity = activity;
+      } catch (error) {
+        console.log(error);
+        this.setInitialLoading(false);
+      }
+    } else {
+      activity = await agent.Acivities.details(id);
+      this.setInitialLoading(false);
+      this.selectActivity = activity;
+    }
+  };
+
+  private SetActivity = async (activity: Activity) => {
+    activity.date = activity.date.split("T")[0];
+    this.ActivityRegistry.set(activity.id, activity);
+  };
+
+  GetActivity = async (id: string) => {
+    return this.ActivityRegistry.get(id);
+  };
+
   setInitialLoading = async (state: boolean) => {
     this.initialLoading = state;
-  };
-
-  SetSelectActivity = (id: string) => {
-    this.selectActivity = this.ActivityRegistry.get(id);
-    this.editMode = false;
-  };
-
-  CancelededActivity = () => {
-    this.selectActivity = undefined;
-  };
-
-  OpenEdit = (id?: string) => {
-    id ? this.SetSelectActivity(id) : this.CancelededActivity();
-    this.editMode = true;
-  };
-
-  CloseEdit = () => {
-    this.editMode = false;
   };
 
   CreateActivity = async (activity: Activity) => {
@@ -110,9 +118,7 @@ export default class ActivityStore {
         runInAction(() => {
           this.ActivityRegistry.delete(id);
 
-          this.selectActivity = undefined;
           this.loading = false;
-          this.editMode = false;
         });
       }
     } catch (error) {

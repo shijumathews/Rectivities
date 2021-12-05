@@ -3,7 +3,6 @@ import { useStore } from "../stores/store";
 import { useLocation } from "react-router-dom";
 
 export default function NavBar() {
-  const { activityStore } = useStore();
   const location = useLocation();
   return (
     <Navbar bg="dark" variant="dark" fixed="top">

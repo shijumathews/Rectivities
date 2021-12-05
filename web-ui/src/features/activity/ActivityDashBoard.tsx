@@ -9,7 +9,6 @@ import ActivityList from "./ActivityList";
 
 export default observer(function ActiviDashBoard() {
   const { activityStore } = useStore();
-  const { selectActivity, editMode } = activityStore;
 
   useEffect(() => {
     activityStore.loadActivities();
@@ -25,8 +24,7 @@ export default observer(function ActiviDashBoard() {
           <ActivityList></ActivityList>
         </Col>
         <Col md={4}>
-          {selectActivity && !editMode && <ActivityDetais></ActivityDetais>}
-          <>{editMode && <ActivityForm></ActivityForm>}</>
+          <h2> Activity Filters...</h2>
         </Col>
       </Row>
     </Container>

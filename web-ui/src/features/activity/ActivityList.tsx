@@ -4,8 +4,7 @@ import { useStore } from "../../app/stores/store";
 
 export default function ActiviDashBoard() {
   const { activityStore } = useStore();
-  const { GetActivityBydate, SetSelectActivity, DeleteActivity, loading } =
-    activityStore;
+  const { GetActivityBydate, DeleteActivity, loading } = activityStore;
   const [target, setTarget] = useState("");
 
   function handleActivityDelete(
@@ -55,7 +54,7 @@ export default function ActiviDashBoard() {
                       &nbsp;
                       <Button
                         variant="primary"
-                        onClick={() => SetSelectActivity(activity.id)}
+                        href={`/activities/${activity.id}`}
                       >
                         View
                       </Button>

@@ -6,7 +6,7 @@ import { useStore } from "../../../app/stores/store";
 
 export default observer(function ActivityForm() {
   const { activityStore } = useStore();
-  const { selectActivity, CloseEdit, CreateActivity, UpdateActivity, loading } =
+  const { selectActivity, CreateActivity, UpdateActivity, loading } =
     activityStore;
 
   const initialState = selectActivity ?? {
@@ -143,7 +143,7 @@ export default observer(function ActivityForm() {
             )}
           </Button>
           &nbsp;
-          <Button variant="secondary" type="button" onClick={() => CloseEdit()}>
+          <Button variant="secondary" type="button">
             Cancel
           </Button>
         </Form>

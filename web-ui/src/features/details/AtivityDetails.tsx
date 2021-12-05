@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, ButtonGroup, Card } from "react-bootstrap";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { useStore } from "../../app/stores/store";
+import { observer } from "mobx-react-lite";
+import { useParams } from "react-router";
 
-export default function ActivityDetais() {
+export default observer(function ActivityDetais() {
   const { activityStore } = useStore();
-  const {
-    OpenEdit,
-    CancelededActivity,
-    selectActivity: activity,
-  } = activityStore;
+  const { selectActivity: activity, LoadActivity } = activityStore;
+  const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    if (id) {
+      LoadActivity(id);
+    }
+  }, [id, LoadActivity]);
 
   if (!activity) {
     return <LoadingComponent />;
@@ -33,19 +38,13 @@ export default function ActivityDetais() {
         </Card.Text>
 
         <ButtonGroup aria-label="Basic example" className="float-end">
-          <Button
-            variant="primary"
-            color="blue"
-            onClick={() => OpenEdit(activity.id)}
-          >
+          <Button variant="primary" color="blue">
             Edit
           </Button>{" "}
           &nbsp;
-          <Button variant="secondary" onClick={() => CancelededActivity()}>
-            Cancel
-          </Button>
+          <Button variant="secondary">Cancel</Button>
         </ButtonGroup>
       </Card.Body>
     </Card>
   );
-}
+});
