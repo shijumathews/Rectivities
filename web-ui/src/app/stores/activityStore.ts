@@ -9,6 +9,7 @@ export default class ActivityStore {
   editMode = false;
   loading = false;
   initialLoading = true;
+  
 
   constructor() {
     makeAutoObservable(this, {});
