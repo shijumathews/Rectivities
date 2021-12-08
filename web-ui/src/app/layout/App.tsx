@@ -1,19 +1,14 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import NavBar from "./NavBar";
 import { Container } from "semantic-ui-react";
-
-import { useStore } from "../stores/store";
 import { observer } from "mobx-react-lite";
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import HomePage from "../../features/home/HomePage";
 import ActivityDashBoard from "../../features/activity/ActivityDashBoard";
 import ActivityForm from "../../features/Activities/form/ActivityForm";
 import ActivityDetais from "../../features/details/AtivityDetails";
 
 function App() {
-  const { activityStore } = useStore();
-
   return (
     <>
       <NavBar />
