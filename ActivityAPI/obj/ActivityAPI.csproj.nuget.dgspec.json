@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj": {}
+    "C:\\Data\\Study\\React\\Rectivities\\ActivityAPI\\ActivityAPI.csproj": {}
   },
   "projects": {
-    "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj": {
+    "C:\\Data\\Study\\React\\Rectivities\\ActivityAPI\\ActivityAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\React\\Rectivities\\ActivityAPI\\ActivityAPI.csproj",
         "projectName": "ActivityAPI",
-        "projectPath": "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj",
+        "projectPath": "C:\\Data\\Study\\React\\Rectivities\\ActivityAPI\\ActivityAPI.csproj",
         "packagesPath": "C:\\Users\\smathews\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\React\\Rectivities\\activityapi\\obj\\",
+        "outputPath": "C:\\Data\\Study\\React\\Rectivities\\ActivityAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\smathews\\AppData\\Roaming\\NuGet\\NuGet.Config",
