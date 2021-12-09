@@ -58,6 +58,10 @@ export default function ActiviDashBoard() {
                       >
                         View
                       </Button>
+                      &nbsp;
+                      <Button variant="primary" href={`/manage/${activity.id}`}>
+                        Edit
+                      </Button>
                     </div>
                   </Col>
                 </Row>
