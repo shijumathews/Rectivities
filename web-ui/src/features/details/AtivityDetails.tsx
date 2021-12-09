@@ -7,18 +7,10 @@ import { useParams } from "react-router";
 
 export default observer(function ActivityDetais() {
   const { activityStore } = useStore();
-  const { LoadActivity } = activityStore;
+  const { EmptyActivity, LoadActivity } = activityStore;
   const { id } = useParams<{ id: string }>();
 
-  const [activity, setActivity] = useState({
-    id: "",
-    title: "",
-    date: "",
-    description: "",
-    category: "",
-    city: "",
-    venue: "",
-  });
+  const [activity, setActivity] = useState(() => EmptyActivity);
 
   useEffect(() => {
     if (id) {

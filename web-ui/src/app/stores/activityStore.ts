@@ -21,6 +21,18 @@ export default class ActivityStore {
     );
   }
 
+  get EmptyActivity() {
+    return {
+      id: "",
+      title: "",
+      date: "",
+      description: "",
+      category: "",
+      city: "",
+      venue: "",
+    };
+  }
+
   loadActivities = async () => {
     try {
       const activities = await agent.Acivities.list();

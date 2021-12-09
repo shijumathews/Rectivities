@@ -15,17 +15,10 @@ export default observer(function ActivityForm() {
     LoadActivity,
     initialLoading,
     setInitialLoading,
+    EmptyActivity,
   } = activityStore;
 
-  const [activity, setActivity] = useState({
-    id: "",
-    title: "",
-    date: "",
-    description: "",
-    category: "",
-    city: "",
-    venue: "",
-  });
+  const [activity, setActivity] = useState(EmptyActivity);
 
   const { id } = useParams<{ id: string }>();
 
