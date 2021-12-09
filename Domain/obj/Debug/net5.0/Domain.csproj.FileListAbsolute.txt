@@ -10,3 +10,15 @@ C:\Data\Study\Udemy\Rectivities\Domain\obj\Debug\net5.0\Domain.dll
 C:\Data\Study\Udemy\Rectivities\Domain\obj\Debug\net5.0\ref\Domain.dll
 C:\Data\Study\Udemy\Rectivities\Domain\obj\Debug\net5.0\Domain.pdb
 C:\Data\Study\Udemy\Rectivities\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
+C:\Data\Study\React\Rectivities\Domain\bin\Debug\net5.0\Domain.deps.json
+C:\Data\Study\React\Rectivities\Domain\bin\Debug\net5.0\Domain.dll
+C:\Data\Study\React\Rectivities\Domain\bin\Debug\net5.0\ref\Domain.dll
+C:\Data\Study\React\Rectivities\Domain\bin\Debug\net5.0\Domain.pdb
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.AssemblyInfoInputs.cache
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.AssemblyInfo.cs
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.csproj.CoreCompileInputs.cache
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.dll
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\ref\Domain.dll
+C:\Data\Study\React\Rectivities\Domain\obj\Debug\net5.0\Domain.pdb

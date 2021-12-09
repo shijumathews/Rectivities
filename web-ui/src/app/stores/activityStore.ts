@@ -6,7 +6,7 @@ import Moment from "moment";
 
 export default class ActivityStore {
   ActivityRegistry = new Map<string, Activity>();
-  selectActivity: Activity | undefined = undefined;
+  // selectActivity: Activity | undefined = undefined;
   editMode = false;
   loading = false;
   initialLoading = true;
@@ -37,7 +37,6 @@ export default class ActivityStore {
   LoadActivity = async (id: string) => {
     this.setInitialLoading(true);
     let activity: Activity | undefined = undefined;
-    console.log("id ::" + id);
 
     activity = await this.GetActivity(id);
 
@@ -45,7 +44,7 @@ export default class ActivityStore {
       try {
         this.SetActivity(activity);
         this.setInitialLoading(false);
-        this.selectActivity = activity;
+        this.SetActivity(activity);
         return activity;
       } catch (error) {
         console.log(error);
@@ -55,15 +54,13 @@ export default class ActivityStore {
       activity = await agent.Acivities.details(id);
       this.SetActivity(activity);
       this.setInitialLoading(false);
-      this.selectActivity = activity;
+      this.SetActivity(activity);
       return activity;
     }
   };
 
   private SetActivity = async (activity: Activity) => {
-    console.log(activity.date);
     activity.date = Moment(activity.date).format("YYYY-MM-DD");
-    console.log(activity.date);
     this.ActivityRegistry.set(activity.id, activity);
   };
 
@@ -84,7 +81,7 @@ export default class ActivityStore {
 
       runInAction(() => {
         this.ActivityRegistry.set(activity.id, activity);
-        this.selectActivity = activity;
+        this.SetActivity(activity);
         this.loading = false;
         this.editMode = false;
       });
@@ -106,7 +103,7 @@ export default class ActivityStore {
       runInAction(() => {
         this.ActivityRegistry.set(activity.id, activity);
 
-        this.selectActivity = activity;
+        this.SetActivity(activity);
         this.loading = false;
         this.editMode = false;
       });

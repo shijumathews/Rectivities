@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, ButtonGroup, Card } from "react-bootstrap";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { useStore } from "../../app/stores/store";
@@ -7,16 +7,26 @@ import { useParams } from "react-router";
 
 export default observer(function ActivityDetais() {
   const { activityStore } = useStore();
-  const { selectActivity: activity, LoadActivity } = activityStore;
+  const { LoadActivity } = activityStore;
   const { id } = useParams<{ id: string }>();
+
+  const [activity, setActivity] = useState({
+    id: "",
+    title: "",
+    date: "",
+    description: "",
+    category: "",
+    city: "",
+    venue: "",
+  });
 
   useEffect(() => {
     if (id) {
-      LoadActivity(id);
+      LoadActivity(id).then((activity) => setActivity(activity!));
     }
   }, [id, LoadActivity]);
 
-  if (!activity) {
+  if (!activity.id) {
     return <LoadingComponent />;
   }
 
@@ -46,7 +56,9 @@ export default observer(function ActivityDetais() {
             Edit
           </Button>{" "}
           &nbsp;
-          <Button variant="secondary"  href={`/activities/`}>Cancel</Button>
+          <Button variant="secondary" href={`/activities/`}>
+            Cancel
+          </Button>
         </ButtonGroup>
       </Card.Body>
     </Card>
