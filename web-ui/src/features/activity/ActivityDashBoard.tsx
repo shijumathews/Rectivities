@@ -13,7 +13,7 @@ export default observer(function ActiviDashBoard() {
   }, [activityStore]);
 
   if (activityStore.initialLoading)
-    return <LoadingComponent content="Loading the app" inverted={false} />;
+    return <LoadingComponent content="Loading the app" />;
 
   return (
     <Container>
