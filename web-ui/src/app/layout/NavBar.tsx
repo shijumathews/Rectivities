@@ -17,9 +17,7 @@ export default function NavBar() {
         </Navbar.Brand>
         <Nav className="me-auto" activeKey={location.pathname}>
           <Nav.Link href="/activities">Reactivities</Nav.Link>
-          <Nav.Link href="/createActivity" as={NavLink} to="/createActivity">
-            Create Activity
-          </Nav.Link>
+          <Nav.Link href="/createactivity">Create Activity</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

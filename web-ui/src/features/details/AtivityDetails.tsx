@@ -38,11 +38,15 @@ export default observer(function ActivityDetais() {
         </Card.Text>
 
         <ButtonGroup aria-label="Basic example" className="float-end">
-          <Button variant="primary" color="blue">
+          <Button
+            variant="primary"
+            color="blue"
+            href={`/manage/${activity.id}`}
+          >
             Edit
           </Button>{" "}
           &nbsp;
-          <Button variant="secondary">Cancel</Button>
+          <Button variant="secondary"  href={`/activities/`}>Cancel</Button>
         </ButtonGroup>
       </Card.Body>
     </Card>

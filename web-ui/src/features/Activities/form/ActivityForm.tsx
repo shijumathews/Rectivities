@@ -1,15 +1,23 @@
 import { observer } from "mobx-react-lite";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 import { Button, Card, Form, Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 
 export default observer(function ActivityForm() {
   const { activityStore } = useStore();
-  const { selectActivity, CreateActivity, UpdateActivity, loading } =
-    activityStore;
 
-  const initialState = selectActivity ?? {
+  const {
+    CreateActivity,
+    UpdateActivity,
+    LoadActivity,
+    initialLoading,
+    setInitialLoading,
+  } = activityStore;
+
+  const [activity, setActivity] = useState({
     id: "",
     title: "",
     date: "",
@@ -17,9 +25,21 @@ export default observer(function ActivityForm() {
     category: "",
     city: "",
     venue: "",
-  };
+  });
 
-  const [activity, setActivity] = useState(initialState);
+  const { id } = useParams<{ id: string }>();
+
+  useEffect(() => {
+    if (id) {
+      LoadActivity(id).then((activity) => setActivity(activity!));
+    } else {
+      setInitialLoading(false);
+    }
+  }, [id, LoadActivity, setInitialLoading]);
+
+  if (initialLoading) {
+    return <LoadingComponent />;
+  }
 
   function HandleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -130,9 +150,9 @@ export default observer(function ActivityForm() {
               Fancy Title is not allowed.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" type="submit" disabled={loading}>
-            {loading && "Saving"} {!loading && "Submit"}&nbsp;
-            {loading && (
+          <Button variant="primary" type="submit" disabled={initialLoading}>
+            {initialLoading && "Saving"} {!initialLoading && "Submit"}&nbsp;
+            {initialLoading && (
               <Spinner
                 as="span"
                 animation="border"
@@ -143,7 +163,11 @@ export default observer(function ActivityForm() {
             )}
           </Button>
           &nbsp;
-          <Button variant="secondary" type="button">
+          <Button
+            variant="secondary"
+            type="button"
+            href={`/activities/${activity.id}`}
+          >
             Cancel
           </Button>
         </Form>

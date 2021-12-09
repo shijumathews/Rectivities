@@ -2,6 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../Agent/agent";
 import { Activity } from "../models/activity";
 import { v4 as uuid } from "uuid";
+import Moment from "moment";
 
 export default class ActivityStore {
   ActivityRegistry = new Map<string, Activity>();
@@ -34,27 +35,35 @@ export default class ActivityStore {
   };
 
   LoadActivity = async (id: string) => {
-    this.setInitialLoading(false);
-    let activity = await this.GetActivity(id);
+    this.setInitialLoading(true);
+    let activity: Activity | undefined = undefined;
+    console.log("id ::" + id);
+
+    activity = await this.GetActivity(id);
 
     if (activity) {
       try {
         this.SetActivity(activity);
         this.setInitialLoading(false);
         this.selectActivity = activity;
+        return activity;
       } catch (error) {
         console.log(error);
         this.setInitialLoading(false);
       }
     } else {
       activity = await agent.Acivities.details(id);
+      this.SetActivity(activity);
       this.setInitialLoading(false);
       this.selectActivity = activity;
+      return activity;
     }
   };
 
   private SetActivity = async (activity: Activity) => {
-    activity.date = activity.date.split("T")[0];
+    console.log(activity.date);
+    activity.date = Moment(activity.date).format("YYYY-MM-DD");
+    console.log(activity.date);
     this.ActivityRegistry.set(activity.id, activity);
   };
 

@@ -17,7 +17,11 @@ function App() {
         <Route exact path="/home" component={HomePage} />
         <Route exact path="/activities" component={ActivityDashBoard} />
         <Route exact path="/activities/:id" component={ActivityDetais} />
-        <Route exact path="/createActivity" component={ActivityForm} />
+        <Route
+          exact
+          path={["/manage/:id", "/createactivity"]}
+          component={ActivityForm}
+        />
       </Container>
     </>
   );
