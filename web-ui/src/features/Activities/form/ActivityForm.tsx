@@ -1,13 +1,14 @@
 import { observer } from "mobx-react-lite";
 import React, { ChangeEvent, useEffect, useState } from "react";
-
+import { v4 as uuid } from "uuid";
 import { Button, Card, Form, Spinner } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 
 export default observer(function ActivityForm() {
   const { activityStore } = useStore();
+  const history = useHistory();
 
   const {
     CreateActivity,
@@ -16,6 +17,7 @@ export default observer(function ActivityForm() {
     initialLoading,
     setInitialLoading,
     EmptyActivity,
+    loading,
   } = activityStore;
 
   const [activity, setActivity] = useState(EmptyActivity);
@@ -40,11 +42,17 @@ export default observer(function ActivityForm() {
   }
 
   function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
-    //console.log(activity);
+    console.log(activity);
     if (activity.id) {
-      UpdateActivity(activity);
+      UpdateActivity(activity).then(() =>
+        history.push(`/activities/${activity.id}`)
+      );
     } else {
-      CreateActivity(activity);
+      console.log(initialLoading);
+      let newActivity = { ...activity, id: uuid() };
+      CreateActivity(newActivity).then(() =>
+        history.push(`/activities/${newActivity.id}`)
+      );
     }
     event.preventDefault();
   }
@@ -143,9 +151,9 @@ export default observer(function ActivityForm() {
               Fancy Title is not allowed.
             </Form.Text>
           </Form.Group>
-          <Button variant="primary" type="submit" disabled={initialLoading}>
-            {initialLoading && "Saving"} {!initialLoading && "Submit"}&nbsp;
-            {initialLoading && (
+          <Button variant="primary" type="submit" disabled={loading}>
+            {loading && "Saving"} {!loading && "Submit"}&nbsp;
+            {loading && (
               <Spinner
                 as="span"
                 animation="border"

@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj": {}
+    "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj": {}
   },
   "projects": {
-    "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj": {
+    "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj",
         "projectName": "ActivityAPI",
-        "projectPath": "C:\\Data\\Study\\React\\Rectivities\\activityapi\\ActivityAPI.csproj",
-        "packagesPath": "C:\\Users\\smathews\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\React\\Rectivities\\activityapi\\obj\\",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj",
+        "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\smathews\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,14 +31,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Data\\Study\\React\\Rectivities\\application\\Application.csproj": {
-                "projectPath": "C:\\Data\\Study\\React\\Rectivities\\application\\Application.csproj"
+              "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj"
               },
-              "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj"
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj"
               },
-              "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj"
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj"
               }
             }
           }
@@ -89,17 +92,20 @@
         }
       }
     },
-    "C:\\Data\\Study\\React\\Rectivities\\application\\Application.csproj": {
+    "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\React\\Rectivities\\application\\Application.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Data\\Study\\React\\Rectivities\\application\\Application.csproj",
-        "packagesPath": "C:\\Users\\smathews\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\React\\Rectivities\\application\\obj\\",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\Application.csproj",
+        "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\smathews\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -113,11 +119,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj"
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj"
               },
-              "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj": {
-                "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj"
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj"
               }
             }
           }
@@ -160,17 +166,20 @@
         }
       }
     },
-    "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj": {
+    "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\smathews\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\React\\Rectivities\\Domain\\obj\\",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\smathews\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -214,17 +223,20 @@
         }
       }
     },
-    "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj": {
+    "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj",
         "projectName": "Persistance",
-        "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Persistance\\Persistance.csproj",
-        "packagesPath": "C:\\Users\\smathews\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\React\\Rectivities\\Persistance\\obj\\",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\Persistance.csproj",
+        "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Persistance\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\smathews\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shiju\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -238,8 +250,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Data\\Study\\React\\Rectivities\\Domain\\Domain.csproj"
+              "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Domain\\Domain.csproj"
               }
             }
           }
