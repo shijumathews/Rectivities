@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj": {}
+    "C:\\Data\\Study\\Udemy\\Rectivities\\activityApi\\ActivityAPI.csproj": {}
   },
   "projects": {
-    "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj": {
+    "C:\\Data\\Study\\Udemy\\Rectivities\\activityApi\\ActivityAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj",
+        "projectUniqueName": "C:\\Data\\Study\\Udemy\\Rectivities\\activityApi\\ActivityAPI.csproj",
         "projectName": "ActivityAPI",
-        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj",
+        "projectPath": "C:\\Data\\Study\\Udemy\\Rectivities\\activityApi\\ActivityAPI.csproj",
         "packagesPath": "C:\\Users\\shiju\\.nuget\\packages\\",
-        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\obj\\",
+        "outputPath": "C:\\Data\\Study\\Udemy\\Rectivities\\activityApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

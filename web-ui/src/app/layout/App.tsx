@@ -12,17 +12,25 @@ function App() {
   const location = useLocation();
   return (
     <>
-      <NavBar />
       <Container style={{ marginTop: "5em" }}>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/home" component={HomePage} />
-        <Route exact path="/activities" component={ActivityDashBoard} />
-        <Route exact path="/activities/:id" component={ActivityDetais} />
         <Route
-          key={location.key}
           exact
-          path={["/manage/:id", "/createactivity"]}
-          component={ActivityForm}
+          path={"/(.+)"}
+          render={() => (
+            <>
+              <NavBar />
+              <Route exact path="/home" component={HomePage} />
+              <Route exact path="/activities" component={ActivityDashBoard} />
+              <Route exact path="/activities/:id" component={ActivityDetais} />
+              <Route
+                key={location.key}
+                exact
+                path={["/manage/:id", "/createactivity"]}
+                component={ActivityForm}
+              />
+            </>
+          )}
         />
       </Container>
     </>

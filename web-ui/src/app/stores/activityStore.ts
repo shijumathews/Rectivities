@@ -133,8 +133,9 @@ export default class ActivityStore {
       if (id) {
         await agent.Acivities.delete(id);
         runInAction(() => {
+          console.log("Inside runInAction...");
           this.ActivityRegistry.delete(id);
-
+          console.log("Removed activity from registery...");
           this.loading = false;
         });
       }

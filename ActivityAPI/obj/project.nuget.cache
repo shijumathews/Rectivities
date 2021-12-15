@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I7iQUWK3nukBfR7xO7sVJEzDMCyA4DfXW3Oevc5fLeRtRAwxujqiKFdwpgrLn0ZF7O/8xbwudMTZ0/Oi5ujauQ==",
+  "dgSpecHash": "W2Mwo9WEiZ5GKwBTqni3XHDhQc2EFj72rDCUZTQ/7Pzq4bP9aOJ9yHl9nwpxPaAErvWNaoVGJwQWKCo1hRXzvQ==",
   "success": true,
-  "projectFilePath": "C:\\Data\\Study\\Udemy\\Rectivities\\Activityapi\\ActivityAPI.csproj",
+  "projectFilePath": "C:\\Data\\Study\\Udemy\\Rectivities\\activityApi\\ActivityAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shiju\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\shiju\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

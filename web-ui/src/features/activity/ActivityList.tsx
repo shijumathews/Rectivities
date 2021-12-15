@@ -1,18 +1,20 @@
 import React, { SyntheticEvent, useState } from "react";
 import { Button, Card, Col, ListGroup, Row, Spinner } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { useStore } from "../../app/stores/store";
 
 export default function ActiviDashBoard() {
   const { activityStore } = useStore();
   const { GetActivityBydate, DeleteActivity, loading } = activityStore;
   const [target, setTarget] = useState("");
+  const history = useHistory();
 
   function handleActivityDelete(
     e: SyntheticEvent<HTMLButtonElement>,
     id: string
   ) {
     setTarget(e.currentTarget.name);
-    DeleteActivity(id);
+    DeleteActivity(id).then(() => history.push(`/activities/`));
   }
 
   return (
